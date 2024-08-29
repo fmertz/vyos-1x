@@ -55,6 +55,8 @@ Driver=CFontzPacket
 Driver=sdeclcd
 {%     elif model == 'hd44780' %}
 Driver=hd44780
+{%     elif model == 'cwlnx' %}
+Driver=cwlnx
 {%     endif %}
 {% endif %}
 
@@ -135,5 +137,49 @@ USB=yes
 ConnectionType=ezio
 Device={{ device }}
 Size=16x2
+{%     elif model == 'cwlnx' %}
+[CwLnx]
+
+# Select the LCD model [default: 12232; legal: 12232, 12832, 1602]
+Model=12232
+
+# Select the output device to use [default: /dev/lcd]
+Device={{ device }}
+
+# Select the LCD size. Default depends on model:
+# 12232: 20x4
+# 12832: 21x4
+# 1602: 16x2
+Size=20x2
+
+# Set the communication speed [default: 19200; legal: 9600, 19200]
+Speed=115200
+
+# Reinitialize the LCD's BIOS [default: no; legal: yes, no]
+# normally you shouldn't need this
+Reboot=no
+
+# If you have a keypad connected. Keypad layout is currently not
+# configureable from the config file.
+Keypad=yes
+
+# If you have a non-standard keypad you can associate any keystrings to keys.
+# There are 6 input keys in the CwLnx hardware that generate characters
+# from 'A' to 'F'.
+#
+# The following is the built-in default mapping hardcoded in the driver.
+# You can leave those unchanged if you have a standard keypad.
+# You can change it if you want to report other keystrings or have a non
+# standard keypad.
+# KeyMap_A=Up
+# KeyMap_B=Down
+# KeyMap_C=Left
+# KeyMap_D=Right
+# KeyMap_E=Enter
+# KeyMap_F=Escape
+
+# keypad_test_mode permits one to test keypad assignment
+# Default value is no
+#keypad_test_mode=yes
 {%     endif %}
 {% endif %}

@@ -12,7 +12,7 @@
             <properties>
               <help>Model of the display attached to this system</help>
               <completionHelp>
-                <list>cfa-533 cfa-631 cfa-633 cfa-635 hd44780 sdec</list>
+                <list>cfa-533 cfa-631 cfa-633 cfa-635 hd44780 sdec cwlnx</list>
               </completionHelp>
               <valueHelp>
                 <format>cfa-533</format>
@@ -36,10 +36,14 @@
               </valueHelp>
               <valueHelp>
                 <format>sdec</format>
-                <description>Lanner, Watchguard, Nexcom NSA, Sophos UTM appliances</description>
+                <description>Lanner, Watchguard, Nexcom NSA, Sophos UTM appliances with LCD on parallel port</description>
+              </valueHelp>
+              <valueHelp>
+                <format>cwlnx</format>
+                <description>CWLinux, Lanner, iBase appliances with LCD on serial port</description>
               </valueHelp>
               <constraint>
-                <regex>(cfa-533|cfa-631|cfa-633|cfa-635|hd44780|sdec)</regex>
+                <regex>(cfa-533|cfa-631|cfa-633|cfa-635|hd44780|sdec|cwlnx)</regex>
               </constraint>
             </properties>
           </leafNode>
